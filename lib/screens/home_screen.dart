@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_cart/constants/constant.dart';
+import 'package:e_cart/models/product_model.dart';
 import 'package:e_cart/screens/details.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -61,10 +62,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       final product = snapshot.data![index];
                       return GestureDetector(
                         onTap: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Details(),
-                            )),
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Details(
+                                    product: ProductModel(
+                                      id: product['id'],
+                                      title: product['title'],
+                                      description: product['description'],
+                                      price: product['price'].toDouble(),
+                                      category: product['category'],
+                                      image: product['image'],
+                                      // rating: {
+                                      //   "rate": product['rating']['rate']
+                                      //       .toDouble(),
+                                      //   "count": product['rating']['count'],
+                                      // },
+                                    ),
+                                  )),
+                        ),
                         child: Card(
                           child: Padding(
                             padding: const EdgeInsets.all(5.0),

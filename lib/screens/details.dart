@@ -2,9 +2,10 @@ import 'package:e_cart/models/product_model.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatelessWidget {
-  //final ProductModel product;
+  final ProductModel product;
   const Details({
     super.key,
+    required this.product,
   });
 
   @override
@@ -17,7 +18,8 @@ class Details extends StatelessWidget {
         ),
         body: Column(
           children: [
-            //Image.network(product.image),
+            Container(
+                width: 200, height: 200, child: Image.network(product.image)),
           ],
         ));
   }

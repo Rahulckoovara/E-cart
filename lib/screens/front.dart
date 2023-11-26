@@ -31,16 +31,6 @@ class _FrontState extends State<Front> {
         ),
         body: Column(
           children: [
-            CarouselSlider(
-                items: [
-                  Image.asset('assets/ad1.png'),
-                  Image.asset('assets/ad2.png'),
-                ],
-                options: CarouselOptions(
-                  autoPlay: true,
-                  height: 200,
-                  viewportFraction: 1,
-                )),
             Expanded(
               child: screens[currentIndex],
             ),
