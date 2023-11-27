@@ -19,7 +19,7 @@ class _FrontState extends State<Front> {
     HomeScreen(),
     const Profile(),
     const Favourite(),
-    const Cart(),
+    //const Cart(),
   ];
 
   @override
@@ -28,6 +28,17 @@ class _FrontState extends State<Front> {
         appBar: AppBar(
           title: Text('E-Kart'),
           backgroundColor: Colors.blue,
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (ctx) {
+                    return const Cart();
+                  }));
+                },
+                icon: Icon(Icons.shopping_cart),
+                style: ButtonStyle(
+                    iconColor: MaterialStateProperty.all<Color>(Colors.white)))
+          ],
         ),
         body: Column(
           children: [
@@ -48,8 +59,8 @@ class _FrontState extends State<Front> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.favorite), label: 'Favorites'),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart), label: 'Cart')
+            // BottomNavigationBarItem(
+            //     icon: Icon(Icons.shopping_cart), label: 'Cart')
           ],
           selectedIconTheme: IconThemeData(color: Colors.blue),
           unselectedLabelStyle: TextStyle(color: Colors.grey),

@@ -41,6 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
             child: FutureBuilder<List>(
                 future: _getProduct(),
                 builder: (context, snapshot) {
+                  //-----------------internet connection-----------------------------
+
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Center(
                       child: CircularProgressIndicator(),
@@ -66,18 +68,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           MaterialPageRoute(
                               builder: (context) => Details(
                                     product: ProductModel(
-                                      id: product['id'],
-                                      title: product['title'],
-                                      description: product['description'],
-                                      price: product['price'].toDouble(),
-                                      category: product['category'],
-                                      image: product['image'],
-                                      // rating: {
-                                      //   "rate": product['rating']['rate']
-                                      //       .toDouble(),
-                                      //   "count": product['rating']['count'],
-                                      // },
-                                    ),
+                                        id: product['id'],
+                                        title: product['title'],
+                                        description: product['description'],
+                                        price: product['price'].toDouble(),
+                                        category: product['category'],
+                                        image: product['image']
+                                        // rating:
+                                        //     product['rating']['rate'].toDouble(),
+                                        //   "count": product['rating']['count'],
+                                        // },
+                                        ),
                                   )),
                         ),
                         child: Card(
@@ -129,23 +130,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
 
 // import 'dart:convert';
 // import 'package:e_cart/screens/cart.dart';
@@ -294,12 +278,6 @@ class _HomeScreenState extends State<HomeScreen> {
 // //   }
 // // }
 
-
-
-
-
-
-
 // // class Home extends StatefulWidget {
 // //   const Home({Key? key}) : super(key: key);
 // //   @override
@@ -324,7 +302,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 // //   @override
 // //   Widget build(BuildContext context) {
-// //     return 
+// //     return
 // // FutureBuilder<List>(
 // //       future: _productFuture,
 // //       builder: (context, snapshot) {

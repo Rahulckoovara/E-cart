@@ -5,7 +5,7 @@ class ProductModel {
   final double? price;
   final String category;
   final String image;
-  // final Rating rating;
+  //final Rating rating;
 
   ProductModel({
     required this.id,
@@ -32,9 +32,9 @@ class ProductModel {
   }
 }
 
-class Rating {
-  final double rate;
-  final int count;
+// class Rating {
+//   final double rate;
+//   final int count;
 
-  Rating({required this.rate, required this.count});
-}
+//   Rating({required this.rate, required this.count});
+// }
